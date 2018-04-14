@@ -98,7 +98,6 @@
         <powermock.version>2.0.0-beta.5</powermock.version> <!-- necessary for Java 9 support -->
         <failsafe.plugin.version>2.20.1</failsafe.plugin.version>
         <surefire.plugin.version>2.20.1</surefire.plugin.version>
-        <clover.version>4.2.0</clover.version>
 
     </properties>
 
@@ -296,33 +295,6 @@
                         <goals>
                             <goal>integration-test</goal>
                             <goal>verify</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.openclover</groupId>
-                <artifactId>clover-maven-plugin</artifactId>
-                <version>${clover.version}</version>
-                <configuration>
-                    <excludes>
-                        <exclude>**/*Test*</exclude>
-                        <!-- leaving out lang as it mostly comes from other sources -->
-                        <exclude>io/jsonwebtoken/lang/*</exclude>
-                    </excludes>
-                    <methodPercentage>100%</methodPercentage>
-                    <statementPercentage>100%</statementPercentage>
-                    <conditionalPercentage>100%</conditionalPercentage>
-                    <targetPercentage>100%</targetPercentage>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>clover</id>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>instrument</goal>
-                            <goal>check</goal>
-                            <goal>clover</goal>
                         </goals>
                     </execution>
                 </executions>
